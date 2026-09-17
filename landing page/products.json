@@ -3,7 +3,7 @@
     "id": 1,
     "name": "รสช็อคโกแลต",
     "taste": "ช็อคโกแลต",
-    "image": "images/choco.jfif",
+    "image": "image/choco.jfif",
     "description": "เข้มข้นหอมกลิ่นโกโก้แท้ ละลายในปากนุ่มละมุน คำแรกก็หลงรัก",
     "sizes": [
       { "size": "เล็ก", "price": 49, "unit": "3 ลูก" },
@@ -15,7 +15,7 @@
     "id": 2,
     "name": "รสช็อคโกแลตชิพ",
     "taste": "ช็อคโกแลตชิพ",
-    "image": "images/chip.jfif",
+    "image": "image/chip.jfif",
     "description": "ช็อคโกแลตนุ่มตัดกับชิพกรุบๆ เคี้ยวมันทุกคำ ฟินไม่มีเบื่อ",
     "sizes": [
       { "size": "เล็ก", "price": 49, "unit": "3 ลูก" },
@@ -27,7 +27,7 @@
     "id": 3,
     "name": "รสคุกกี้แอนด์ครีม",
     "taste": "คุกกี้แอนด์ครีม",
-    "image": "images/cookie.jfif",
+    "image": "image/cookie.jfif",
     "description": "ครีมหวานมันผสมคุกกี้ชิ้นโต กัดทีไรได้ความอร่อยคูณสอง",
     "sizes": [
       { "size": "เล็ก", "price": 49, "unit": "3 ลูก" },
@@ -39,7 +39,7 @@
     "id": 4,
     "name": "รสมิ้นช็อค",
     "taste": "มิ้นช็อค",
-    "image": "images/mint.jfif",
+    "image": "image/mint.jfif",
     "description": "เย็นสดชื่นจากมิ้นต์ แต่งแต้มด้วยช็อคโกแลต อร่อยลงตัวแบบไม่ต้องคิดเยอะ",
     "sizes": [
       { "size": "เล็ก", "price": 49, "unit": "3 ลูก" },
@@ -51,7 +51,7 @@
     "id": 5,
     "name": "รสทุเรียน",
     "taste": "ทุเรียน",
-    "image": "images/du.jfif",
+    "image": "image/du.jfif",
     "description": "ทุเรียนแท้หอมเข้มถึงใจ ครีมมี่นุ่มละมุน ของคนรักทุเรียนตัวจริง",
     "sizes": [
       { "size": "เล็ก", "price": 49, "unit": "3 ลูก" },

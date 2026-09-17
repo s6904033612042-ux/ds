@@ -111,7 +111,7 @@ function initProductPage() {
    ========================================================================== */
 
 /* TODO: แทนที่ด้วย URL ของ Apps Script Web App ที่ deploy แล้ว */
-const APPS_SCRIPT_URL = "PUT_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE";
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxT2_RS3Psd1fZgG-YPZSqjao7ZU3CRk71W5Lv0CdfMhcxlytmcR4m2IsikvtqFtpXq/exec";
 
 function fillOrderFromURL() {
   const params = new URLSearchParams(window.location.search);
@@ -160,7 +160,7 @@ function initOrderPage() {
 
 /* TODO: แทนที่ด้วย URL สำหรับ export ชีตเป็น CSV เช่น
    https://docs.google.com/spreadsheets/d/{ID}/gviz/tq?tqx=out:csv&sheet=Sheet1 */
-const CSV_URL = "PUT_YOUR_CSV_EXPORT_URL_HERE";
+const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQsOXC2gkt4UqxWdhBxbt5kn8h9GsNqjBQPRGBLDdmUnQL8GGQYH14-_iFyc0ww_71th25_XqTdIhP9/pub?gid=0&single=true&output=csv";
 
 // แปลงข้อความ CSV เป็น array of rows (array of fields)
 // รองรับฟิลด์ที่ครอบด้วย " และมีจุลภาคหรือขึ้นบรรทัดใหม่อยู่ข้างใน

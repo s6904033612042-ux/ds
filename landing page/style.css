@@ -1,0 +1,612 @@
+/* ==========================================================================
+   มหาชัยตรัยอนันต์ — Base Theme
+   โทนพรีเมียม เรียบหรู มินิมอล / ขาว-ครีม-เบจเข้ม + ทอง-บรอนซ์อ่อน
+   ========================================================================== */
+
+:root {
+  /* Core palette */
+  --color-bg: #FBF9F5;
+  --color-surface: #F4EFE6;
+  --color-surface-deep: #E8DFCF;
+  --color-ink: #2B2621;
+  --color-ink-soft: #5C5449;
+  --color-border: #D8CDB8;
+  --color-accent: #B08D57;
+  --color-accent-deep: #8C6D3F;
+  --color-accent-soft: #E9DCC3;
+
+  /* Taste accents — เบาๆ ใช้แค่จุดเล็ก ๆ ไม่ทาพื้นหลังเต็ม */
+  --taste-choco: #8A5A3C;
+  --taste-chip: #6B4A34;
+  --taste-cookie: #A99A85;
+  --taste-mint: #8FAE9B;
+  --taste-durian: #C7B15A;
+
+  /* Typography */
+  --font-display: 'Cormorant Garamond', 'Noto Serif Thai', serif;
+  --font-body: 'Jost', 'Noto Sans Thai', sans-serif;
+
+  /* Type scale */
+  --text-xs: 0.8rem;
+  --text-sm: 0.95rem;
+  --text-base: 1.05rem;
+  --text-lg: 1.35rem;
+  --text-xl: 1.9rem;
+  --text-2xl: 2.75rem;
+  --text-3xl: 3.75rem;
+
+  /* Spacing scale */
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.75rem;
+  --space-4: 2.75rem;
+  --space-5: 4.5rem;
+  --space-6: 7rem;
+
+  /* Layout */
+  --max-width: 1180px;
+  --border-thin: 1px solid var(--color-border);
+  --radius: 2px;
+}
+
+/* ==========================================================================
+   Reset
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 300;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: 1.2;
+  margin: 0;
+  color: var(--color-ink);
+}
+
+h1 { font-size: var(--text-3xl); }
+h2 { font-size: var(--text-2xl); }
+h3 { font-size: var(--text-lg); }
+
+p {
+  margin: 0;
+  color: var(--color-ink-soft);
+  max-width: 62ch;
+}
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+}
+
+/* Visible keyboard focus */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ==========================================================================
+   Layout helpers
+   ========================================================================== */
+
+.container {
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--space-3);
+}
+
+.section {
+  padding-block: var(--space-6);
+}
+
+.section--tight {
+  padding-block: var(--space-5);
+}
+
+.section-heading {
+  margin-bottom: var(--space-4);
+}
+
+.section-heading p {
+  margin-top: var(--space-2);
+}
+
+/* ==========================================================================
+   Navigation
+   ========================================================================== */
+
+.nav {
+  border-bottom: var(--border-thin);
+  background-color: var(--color-bg);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: var(--space-2);
+}
+
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  letter-spacing: 0.02em;
+}
+
+.nav-links {
+  display: flex;
+  gap: var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--color-ink-soft);
+}
+
+.nav-links a {
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+  transition: border-color 0.25s ease, color 0.25s ease;
+}
+
+.nav-links a:hover {
+  color: var(--color-accent-deep);
+  border-color: var(--color-accent);
+}
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: 0.85em 2em;
+  font-size: var(--text-sm);
+  border-radius: var(--radius);
+  border: 1px solid var(--color-ink);
+  background: transparent;
+  color: var(--color-ink);
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+.btn:hover {
+  background-color: var(--color-ink);
+  color: var(--color-bg);
+}
+
+.btn-primary {
+  border-color: var(--color-accent-deep);
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-accent-deep);
+  border-color: var(--color-accent-deep);
+  color: var(--color-bg);
+}
+
+/* ==========================================================================
+   Product card
+   ========================================================================== */
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4) var(--space-3);
+}
+
+.product-card {
+  background-color: var(--color-surface);
+  border: var(--border-thin);
+  padding: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.product-card__image {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background-color: var(--color-surface-deep);
+}
+
+.product-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-card__taste-mark {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 0.5em;
+}
+
+.product-card h3 {
+  display: flex;
+  align-items: center;
+}
+
+.product-card p {
+  font-size: var(--text-sm);
+}
+
+.product-card__price {
+  margin-top: auto;
+  padding-top: var(--space-2);
+  border-top: var(--border-thin);
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  color: var(--color-accent-deep);
+}
+
+.product-card__price span {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  color: var(--color-ink-soft);
+}
+
+/* Taste accent dots — ใช้แต้มเล็ก ๆ เท่านั้น */
+.taste-choco  .product-card__taste-mark { background-color: var(--taste-choco); }
+.taste-chip   .product-card__taste-mark { background-color: var(--taste-chip); }
+.taste-cookie .product-card__taste-mark { background-color: var(--taste-cookie); }
+.taste-mint   .product-card__taste-mark { background-color: var(--taste-mint); }
+.taste-durian .product-card__taste-mark { background-color: var(--taste-durian); }
+
+/* ==========================================================================
+   Filter bar (product.html)
+   ========================================================================== */
+
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-3);
+  border-bottom: var(--border-thin);
+}
+
+.filter-btn {
+  padding: 0.55em 1.4em;
+  font-size: var(--text-sm);
+  font-family: var(--font-body);
+  background: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-ink-soft);
+  border-radius: 999px;
+  transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+}
+
+.filter-btn:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent-deep);
+}
+
+.filter-btn.is-active {
+  background-color: var(--color-ink);
+  border-color: var(--color-ink);
+  color: var(--color-bg);
+}
+
+.product-card__size-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4em;
+}
+
+.product-card__size-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--text-sm);
+  color: var(--color-ink-soft);
+}
+
+.product-card__size-row span:last-child {
+  color: var(--color-accent-deep);
+  font-family: var(--font-display);
+}
+
+.product-card__order-btn {
+  margin-top: var(--space-1);
+}
+
+.empty-state {
+  color: var(--color-ink-soft);
+  padding: var(--space-4) 0;
+}
+
+/* ==========================================================================
+   Hero (index.html)
+   ========================================================================== */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  border-bottom: var(--border-thin);
+}
+
+.hero-inner {
+  max-width: 720px;
+}
+
+.hero-eyebrow-mark {
+  width: 34px;
+  height: 1px;
+  background-color: var(--color-accent);
+  margin-bottom: var(--space-3);
+}
+
+.hero h1 {
+  font-size: var(--text-3xl);
+  margin-bottom: var(--space-3);
+}
+
+.hero p {
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-4);
+  color: var(--color-ink-soft);
+}
+
+/* ==========================================================================
+   Taste cards (index.html)
+   ========================================================================== */
+
+.taste-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--space-3);
+}
+
+.taste-card {
+  display: block;
+  padding: var(--space-3) var(--space-2);
+  border: var(--border-thin);
+  text-align: center;
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.taste-card:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-3px);
+}
+
+.taste-card__mark {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin: 0 auto var(--space-2);
+}
+
+.taste-card h3 {
+  font-size: var(--text-base);
+}
+
+/* ==========================================================================
+   Order form (order.html)
+   ========================================================================== */
+
+.order-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  max-width: 520px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.form-field label {
+  font-size: var(--text-sm);
+  color: var(--color-ink-soft);
+}
+
+.form-field input,
+.form-field textarea {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-ink);
+  background-color: var(--color-surface);
+  border: var(--border-thin);
+  border-radius: var(--radius);
+  padding: 0.75em 1em;
+  resize: vertical;
+}
+
+.form-field input:read-only {
+  background-color: var(--color-surface-deep);
+  color: var(--color-ink-soft);
+}
+
+.form-field input:focus-visible,
+.form-field textarea:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.order-form__submit {
+  align-self: flex-start;
+  margin-top: var(--space-2);
+}
+
+/* ==========================================================================
+   Admin table (admin.html)
+   ========================================================================== */
+
+.table-wrap {
+  overflow-x: auto;
+  border: var(--border-thin);
+}
+
+#ordersTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-sm);
+}
+
+#ordersTable th,
+#ordersTable td {
+  padding: 0.9em 1.2em;
+  text-align: left;
+  white-space: nowrap;
+  border-bottom: var(--border-thin);
+}
+
+#ordersTable td:nth-child(4),
+#ordersTable td:nth-child(6) {
+  white-space: normal;
+  min-width: 200px;
+}
+
+#ordersTable thead th {
+  background-color: var(--color-surface);
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+#ordersTable tbody tr:hover {
+  background-color: var(--color-surface);
+}
+
+.loading-row,
+.empty-row,
+.error-row {
+  text-align: center !important;
+  color: var(--color-ink-soft);
+  white-space: normal !important;
+}
+
+/* ==========================================================================
+   Thank-you page (thankyou.html)
+   ========================================================================== */
+
+.thankyou {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.thankyou-inner {
+  max-width: 480px;
+}
+
+.thankyou-eyebrow-mark {
+  width: 34px;
+  height: 1px;
+  background-color: var(--color-accent);
+  margin: 0 auto var(--space-3);
+}
+
+.thankyou p {
+  margin: 0 auto var(--space-4);
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+.footer {
+  border-top: var(--border-thin);
+  padding-block: var(--space-4);
+  font-size: var(--text-xs);
+  color: var(--color-ink-soft);
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 960px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .taste-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  :root {
+    --text-3xl: 2.75rem;
+    --text-2xl: 2.1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .taste-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .nav-links {
+    gap: var(--space-2);
+    font-size: var(--text-xs);
+  }
+
+  .section {
+    padding-block: var(--space-4);
+  }
+
+  :root {
+    --text-3xl: 2.2rem;
+    --text-2xl: 1.75rem;
+  }
+}
